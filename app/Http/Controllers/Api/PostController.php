@@ -17,7 +17,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = Post::where('user_id', auth()->user()->id)->get();
         $posts=Post::all();
         return $this->apiResponse($posts,'All posts');
     }

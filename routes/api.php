@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/comments/show/{pid}', [CommentController::class, 'show']);
         Route::post('/comments/{id}/{comment}/like', [LikeController::class, 'store']);
         Route::post('/posts/{id}/{post}/like', [LikeController::class, 'store']);
+        Route::delete('/comments/{id}/{comment}/dislike', [LikeController::class, 'cancelLike']);
+        Route::delete('/posts/{id}/{post}/dislike', [LikeController::class, 'cancelLike']);
     });
     Route::prefix('Dashboard')->middleware(['admin'])->group(function (){
         Route::get('/posts/deleted', [PostController::class, 'softPosts']);
